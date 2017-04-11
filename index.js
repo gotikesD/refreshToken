@@ -53,7 +53,8 @@ app.get('/refresh', middleware.detectRefreshToken , function (req, res, next) {
 });
 
 app.use(function (err, req, res) {
-    res.end(err.message)
+
+    res.send(err.message ? err.message : err)
 });
 
 app.listen('8080');
